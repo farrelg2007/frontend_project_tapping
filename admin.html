@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="admin.css" />
+  </head>
+  <body>
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <h3>Spin Radio Admin</h3>
+      </div>
+
+      <nav class="menu">
+        <a href="#" data-page="dashboard" class="active">Dashboard</a>
+        <a href="#" data-page="history">History</a>
+        <a href="#" data-page="crew">Crew</a>
+      </nav>
+    </aside>
+
+    <!-- MAIN AREA -->
+    <div class="main">
+      <!-- TOP BAR -->
+      <header class="topbar">
+        <div class="title_home">
+          <button id="menu_button">☰</button>
+          <span>Home / Dashboard</span>
+        </div>
+
+        <div class="user_info">
+          <span>Admin</span>
+          <button id="logout_button" onclick="p">Logout</button>
+        </div>
+      </header>
+
+      <!-- CONTENT -->
+      <main class="content">
+        <!--DASHBOARD-->
+        <section id="dashboard" class="page">
+          <h1>Dashboard</h1>
+          <p>Tanggal :</p>
+          <section class="quickaccess">
+            <h2>Table Akses Harian</h2>
+            <table class="tabelhadir">
+              <tr>
+                <th>Waktu Masuk</th>
+                <th>ID</th>
+                <th>Nama</th>
+                <th>Divisi</th>
+                <th>Role</th>
+              </tr>
+              <tr>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+              </tr>
+            </table>
+          </section>
+
+          <section class="cards">
+            <div class="card">
+              <h2>(jumlah pengunjung)</h2>
+              <p>Jumlah Pengunjung</p>
+            </div>
+
+            <div class="card">
+              <h2>(???)</h2>
+              <p>Isi apa yaa..</p>
+            </div>
+            <div class="card">
+              <h2>(???)</h2>
+              <p>Isi apa yaa..</p>
+            </div>
+          </section>
+        </section>
+
+        <section id="history" class="page" style="display: none">
+          <h1>History</h1>
+
+          <section class="filters">
+            <label for="dateFilter">Filter Tanggal:</label>
+            <input type="date" id="dateFilter" name="dateFilter" />
+            <button id="applyFilter">Apply Filter</button>
+          </section>
+
+          <section class="quickaccess">
+            <h2>Table Akses</h2>
+            <p>Tanggal:</p>
+            <table class="tabelhadir">
+              <tr>
+                <th>Waktu Masuk</th>
+                <th>ID</th>
+                <th>Nama</th>
+                <th>Divisi</th>
+                <th>Role</th>
+              </tr>
+              <tr>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+              </tr>
+            </table>
+          </section>
+        </section>
+
+        <section id="crew" class="page" style="display: none">
+          <h1>Crew</h1>
+          <section class="quickaccess">
+            <h2>Data Crew</h2>
+            <table class="tabelcrew">
+              <tr>
+                <th>ID</th>
+                <th>Nama</th>
+                <th>Divisi</th>
+                <th>Role</th>
+              </tr>
+              <tr>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+              </tr>
+            </table>
+        </section>
+      </main>
+    </div>
+
+    <!-- LOGOUT POPUP -->
+    <div id="logoutPopup" style="display: none">
+      <div>
+        <p>Yakin mau logout?</p>
+        <button id="confirmLogout">Ya</button>
+        <button id="cancelLogout">Batal</button>
+      </div>
+    </div>
+
+    
+  </body>
+  <!-- SCRIPT -->
+    <script src="admin.js"></script>
+
+</html>
