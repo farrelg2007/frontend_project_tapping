@@ -1,45 +1,87 @@
-html, body{
+html, body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
+    color: #333;
 }
 
-aside nav a, aside .brand h3 {
+aside nav a,
+aside .brand h3 {
     color: #f4f4f4;
     text-decoration: none;
     display: block;
     padding: 15px 10px 15px 20px;
+    transition: background-color 0.3s ease, font-size 0.3s ease;
 }
+
 .sidebar {
-  width: 220px;
-  transition: all 0.3s ease;
-  background-color: #333;
+    width: 220px;
+    background-color: #333;
     height: 100vh;
     position: fixed;
     color: #f4f4f4;
+    overflow-x: hidden;
+
+    transform: translateX(0);
+    opacity: 1;
+    transition:
+        width 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+        transform 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+        opacity 0.3s ease;
 }
+
+.brand {
+    text-align: center;
+    padding: 12px 5px;
+    background-color: #2e2e2e;
+    margin-bottom: 5px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+    transition: opacity 0.3s ease, transform 0.4s ease;
+}
+
+.menu a {
+    opacity: 1;
+    transform: translateX(0);
+    transition:
+        opacity 0.3s ease,
+        transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.menu a:hover {
+    background-color: #5f5f5f;
+    font-size: 18px;
+    border-left: 4px solid #ffffff;
+}
+
+.menu a:nth-child(1) { transition-delay: 0.05s; }
+.menu a:nth-child(2) { transition-delay: 0.1s; }
+.menu a:nth-child(3) { transition-delay: 0.15s; }
+.menu a:nth-child(4) { transition-delay: 0.2s; }
+.menu a:nth-child(5) { transition-delay: 0.25s; }
 
 .sidebar.closed {
-  width: 0;
-  overflow: hidden;
-}
-.content {
-  transition: margin-left 0.3s ease;
-  padding: 20px;
-}
-.main {
-  transition: margin-left 0.3s ease;
-  margin-left: 220px;
+    width: 0;
+    transform: translateX(-40px);
+    opacity: 0;
 }
 
-.main.full {
-  margin-left: 0;
+.sidebar.closed .menu a {
+    opacity: 0;
+    transform: translateX(-30px);
 }
 
-.main h1, .main p {
-    padding-left: 20px;
+.sidebar.closed .menu a:nth-child(1) { transition-delay: 0.25s; }
+.sidebar.closed .menu a:nth-child(2) { transition-delay: 0.2s; }
+.sidebar.closed .menu a:nth-child(3) { transition-delay: 0.15s; }
+.sidebar.closed .menu a:nth-child(4) { transition-delay: 0.1s; }
+.sidebar.closed .menu a:nth-child(5) { transition-delay: 0.05s; }
+
+.sidebar.closed .brand {
+    opacity: 0;
+    transform: translateY(-15px);
 }
+
 .topbar {
     background-color: #fff;
     padding: 10px 20px;
@@ -49,12 +91,58 @@ aside nav a, aside .brand h3 {
     align-items: center;
 }
 
+.title_home button {
+    background-color: #ffffff;
+    border: none;
+    color: #050505;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.2s ease;
+}
+
+.title_home button:hover {
+    background-color: #eaeaea;
+}
+
 .topbar .title_home span {
     font-weight: bold;
     color: #333;
     padding: 10px;
 }
 
+.user_info button {
+    background-color: #00000007;
+    border: none;
+    color: #000;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.user_info button:hover {
+    background-color: #00000015;
+}
+
+.main {
+    margin-left: 220px;
+    transition: margin-left 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.main.full {
+    margin-left: 0;
+}
+
+.content {
+    padding: 20px;
+}
+
+.main h1,
+.main p {
+    padding-left: 20px;
+}
 
 .cards {
     display: flex;
@@ -66,59 +154,230 @@ aside nav a, aside .brand h3 {
 .cards .card {
     background-color: #fff;
     padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-radius: 6px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
     flex: 1;
     min-width: 180px;
     text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cards .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
 }
 
 section.quickaccess {
     background-color: #fff;
     padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    flex: 1;
+    border-radius: 6px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
     min-width: 320px;
-    text-align: center;
 }
 
-.tabelhadir, .tablecrew{
+.tabelhadir {
     background-color: #333;
     color: #f4f4f4;
     border-collapse: collapse;
     width: 100%;
-    
+    margin-top: 15px;
 }
-.tabelhadir th, .tabelhadir td, .tablecrew th, .tablecrew td{
+
+.tabelhadir th,
+.tabelhadir td {
     padding: 12px;
-    border: 1px solid #000000;
+    border: 1px solid #000;
     text-align: left;
 }
-.tabelhadir th, .tablecrew th {
+
+.tabelhadir th {
     background-color: #555;
 }
 
-#logoutPopup{
-    color: white;
-    position: fixed;
-    top: 1.5%;
-    left: 87%;
-    background-color: #555;
-    padding: 5px 5px 5px 5px;
-    border: solid 2px #000000;
+.tabelhadir tr:nth-child(even) {
+    background-color: #3f3f3f;
 }
 
-#logoutPopup button{
-    background-color: #ff4d4d;
+@media (max-width: 768px) {
+    .sidebar {
+        z-index: 100;
+    }
+
+    .cards {
+        flex-direction: column;
+    }
+
+    .main h1,
+    .main p {
+        padding-left: 0;
+    }
+}
+.content .row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.content [class*="col-"] {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.cards .card {
     border: none;
-    color: white;
-    padding: 5px 10px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 14px;
-    margin: 4px 2px;
-    cursor: pointer;
+}
+
+.menu a.active {
+    background-color: #1f1f1f;
+    border-left: 4px solid #ffffff;
+    font-weight: bold;
+}
+
+.page {
+    animation: fadePage 0.35s ease;
+}
+
+@keyframes fadePage {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.filters {
+    background-color: #ffffff;
+    padding: 15px 20px;
+    border-radius: 6px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.08);
+    margin-bottom: 20px;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.filters label {
+    font-weight: bold;
+    color: #333;
+}
+
+.filters input[type="date"] {
+    padding: 6px 10px;
+    border: 1px solid #ccc;
     border-radius: 4px;
+}
+
+.filters button {
+    padding: 6px 14px;
+    border: none;
+    border-radius: 4px;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.filters button:hover {
+    background-color: #555;
+}
+
+.tabelcrew {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    background-color: #ffffff;
+}
+
+.tabelcrew th,
+.tabelcrew td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.tabelcrew th {
+    background-color: #f0f0f0;
+    color: #333;
+    font-weight: bold;
+}
+
+.tabelcrew tr:nth-child(even) {
+    background-color: #fafafa;
+}
+
+#logoutPopup {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0,0,0,0.45);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 200;
+}
+
+#logoutPopup > div {
+    background-color: #ffffff;
+    padding: 25px 30px;
+    border-radius: 8px;
+    min-width: 260px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+    animation: popupFade 0.3s ease;
+}
+
+@keyframes popupFade {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+#logoutPopup button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    margin: 10px 5px 0;
+    cursor: pointer;
+}
+
+#confirmLogout {
+    background-color: #111;
+    color: #fff;
+}
+
+#cancelLogout {
+    background-color: #e0e0e0;
+}
+
+@media (max-width: 768px) {
+
+    .sidebar {
+        transform: translateX(-100%);
+    }
+
+    .sidebar.closed {
+        transform: translateX(0);
+        width: 220px;
+        opacity: 1;
+    }
+
+    .main {
+        margin-left: 0;
+    }
+
+    .cards {
+        gap: 15px;
+    }
+
+    .filters {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }
