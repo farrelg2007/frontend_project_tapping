@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard</title>
+
+  <!-- BOOTSTRAP -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  >
+
+  <!-- CSS KAMU -->
+  <link rel="stylesheet" href="admin.css" />
+</head>
+
+<body class="bg-light">
+
+<!-- ================= SIDEBAR ================= -->
+<aside class="sidebar" id="sidebar">
+  <div class="brand">
+    <img src="logo-strfm.jpg" alt="Logo" class="mb-2" style="width: 40px; height: 40px;" />
+    <h3 class="fw-bold mb-0">Menu</h3>
+  </div>
+
+  <nav class="menu d-flex flex-column">
+    <a href="#" data-page="dashboard" class="active fw-semibold">Dashboard</a>
+    <a href="#" data-page="history" class="fw-semibold">History</a>
+    <a href="#" data-page="crew" class="fw-semibold">Crew</a>
+  </nav>
+</aside>
+
+<!-- ================= MAIN ================= -->
+<div class="main">
+
+  <!-- TOPBAR -->
+  <header class="topbar">
+    <div class="title_home d-flex align-items-center gap-2">
+      <button id="menu_button" class="btn btn-outline-dark btn-sm">☰</button>
+      <span class="fw-semibold">Admin Tapping STRFM</span>
+    </div>
+
+    <div class="user_info d-flex align-items-center gap-3">
+      <span class="fw-semibold">Admin</span>
+      <button id="logout_button" class="btn btn-dark btn-sm">Logout</button>
+      <button id="test_tapping" class="btn btn-dark btn-sm">Test Tapping</button>
+    </div>
+  </header>
+
+  <!-- CONTENT -->
+  <main class="content">
+
+    <!-- ================= DASHBOARD ================= -->
+    <section id="dashboard" class="page">
+      <h1 class="fw-bold mb-1">Dashboard</h1>
+      <p class="text-muted">Tanggal :</p>
+
+      <!-- TABLE -->
+      <section class="quickaccess mb-4">
+        <h5 class="fw-semibold mb-3">Table Akses Harian</h5>
+
+        <div class="table-responsive">
+          <table class="tabelhadir table table-dark table-striped align-middle">
+            <thead>
+              <tr>
+                <th>Waktu Masuk</th>
+                <th>ID</th>
+                <th>Nama</th>
+                <th>Divisi</th>
+                <th>Role</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- CARDS -->
+      <section class="cards row g-3">
+        <div class="col-md-3">
+          <div class="card text-center border-0 shadow-sm">
+            <div class="card-body">
+              <h4 class="fw-bold">(jumlah pengunjung)</h4>
+              <p class="text-muted mb-0">Jumlah Pengunjung</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-5">
+          <div class="card text-center border-0 shadow-sm">
+            <div class="card-body">
+              <h4 class="fw-bold">(???)</h4>
+              <p class="text-muted mb-0">Isi apa yaa..</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="card text-center border-0 shadow-sm">
+            <div class="card-body">
+              <h4 class="fw-bold">(???)</h4>
+              <p class="text-muted mb-0">Isi apa yaa..</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <!-- ================= HISTORY ================= -->
+    <section id="history" class="page" style="display:none">
+      <h1 class="fw-bold mb-3">History</h1>
+
+      <section class="filters d-flex align-items-center gap-3 mb-3">
+        <label for="dateFilter" class="fw-semibold">Filter Tanggal:</label>
+        <input type="date" id="dateFilter" class="form-control w-auto">
+        <button id="applyFilter" class="btn btn-outline-dark btn-sm">
+          Apply
+        </button>
+      </section>
+
+      <section class="quickaccess">
+        <h5 class="fw-semibold mb-3">Table Akses</h5>
+
+        <div class="table-responsive">
+          <table class="tabelhadir table table-dark table-striped align-middle">
+            <thead>
+              <tr>
+                <th>Waktu Masuk</th>
+                <th>ID</th>
+                <th>Nama</th>
+                <th>Divisi</th>
+                <th>Role</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </section>
+
+    <!-- ================= CREW ================= -->
+    <section id="crew" class="page" style="display:none">
+      <h1 class="fw-bold mb-3">Crew</h1>
+
+      <section class="quickaccess">
+        <h5 class="fw-semibold mb-3">Data Crew</h5>
+
+        <div class="table-responsive">
+          <table class="tabelcrew table table-light table-hover align-middle">
+            <thead class="table-secondary">
+              <tr>
+                <th>ID</th>
+                <th>Nama</th>
+                <th>Divisi</th>
+                <th>Role</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </section>
+
+  </main>
+</div>
+
+<!-- ================= LOGOUT POPUP ================= -->
+<div id="logoutPopup" style="display:none">
+  <div id="logoutPopupInner">
+    <p>Yakin mau logout?</p>
+    <button id="confirmLogout" class="btn btn-dark btn-sm">Ya</button>
+    <button id="cancelLogout" class="btn btn-outline-secondary btn-sm">Batal</button>
+  </div>
+</div>
+
+<!-- ================= TEST TAPPING ================= -->
+<div id="tappingPopup" style="display:none">
+    <h1>Tapping Berhasil!</h1>
+</div>
+
+<!-- BOOTSTRAP JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- JS KAMU -->
+<script src="admin.js"></script>
+</body>
+</html>
